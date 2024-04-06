@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 8px 10px;
+  border: 2px solid burlywood;
+  box-shadow: 0px 0px 5px 1px burlywood;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-btn {
+  border-radius: 10px;
+  border: 2px solid burlywood;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: burlywood;
+  box-shadow: 0px 0px 5px 1px burlywood;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.input-btn:hover {
+  background-color: burlywood;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.task-item {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 5px;
+  margin-top: 50px;
+}
+
+.btn-delete {
+  align-self: flex-end;
+  border-radius: 5px;
+  border: 2px solid burlywood;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: burlywood;
+  box-shadow: 0px 0px 3px 1px burlywood;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: burlywood;
+  color: black;
+}
+
+li {
+  min-width: 200px;
+  text-align: left;
+}
