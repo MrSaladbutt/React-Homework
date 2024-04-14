@@ -1,3 +1,7 @@
+// 1) Переписати наш туду ліст на классовий компонент
+// 2) Зберігати данні у loaclStorage
+// 4) Додати кнопку по якій наш localStorage буде очищуватись (Clear Todo List
+
 import './App.css';
 import ToDoListClass from './ToDoListClass';
 
