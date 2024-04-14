@@ -8,48 +8,64 @@ import { useReducer, useState } from 'react';
 
 function UseReducerComponent() {
   const initialState = { name: '', lastName: '', birthYear: '' };
-  const [input, setInput] = useState('');
-  const reduser = (state, action) => {
+  const [inputFirst, setInputFirst] = useState('');
+  const [inputSecond, setInputSecond] = useState('');
+  const [inputThird, setInputThird] = useState('');
+  const reducer = (state, action) => {
     switch (action.type) {
       case 'name':
-        return { ...state, name: input };
+        return { ...state, name: inputFirst };
       case 'lastName':
-        return { ...state, lastName: input };
+        return { ...state, lastName: inputSecond };
       case 'birthYear':
-        return { ...state, birthYear: input };
+        return { ...state, birthYear: inputThird };
       default:
         return { ...state };
     }
   };
-  const [value, dispatch] = useReducer(reduser, initialState);
+
+  const [value, dispatch] = useReducer(reducer, initialState);
 
   const handleClick = type => {
     dispatch(type);
   };
 
-  const onChangeHandler = event => setInput(event.target.value);
+  const onChangeHandlerFirst = event => {
+    const target = event.target;
+    setInputFirst(target.value);
+  };
+
+  const onChangeHandlerSecond = event => {
+    const target = event.target;
+    setInputSecond(target.value);
+  };
+
+  const onChangeHandlerThird = event => {
+    const target = event.target;
+    setInputThird(target.value);
+  };
 
   return (
     <div className="use-reduser-component">
       <h2>UseReducer Component</h2>
       <div>
-        <p>Імʼя: {value.name}</p>
-        <input type="text" onChange={onChangeHandler} />
+        <input type="text" name="1" onChange={onChangeHandlerFirst} />
         <button onClick={() => handleClick({ type: 'name' })}>Імʼя</button>
       </div>
       <div>
-        <p>Прізвище: {value.lastName}</p>
-        <input type="text" onChange={onChangeHandler} />
+        <input type="text" name="2" onChange={onChangeHandlerSecond} />
         <button onClick={() => handleClick({ type: 'lastName' })}>
           Прізвище
         </button>
       </div>
       <div>
-        <p> Рік народження: {value.birthYear} </p>
-        <input type="number" onChange={onChangeHandler} />
+        <input type="number" name="3" onChange={onChangeHandlerThird} />
         <button onClick={() => handleClick({ type: 'birthYear' })}>
           Рік народження
         </button>
+        <p>Імʼя: {value.name}</p>
+        <p>Прізвище: {value.lastName}</p>
+        <p> Рік народження: {value.birthYear} </p>
       </div>
     </div>
   );
