@@ -32,16 +32,19 @@ class ToDoListClass extends Component {
   };
 
   onClickHandler = () => {
-    this.setState({
-      task: [
-        ...this.state.task,
-        { id: this.state.task.length + 1, name: this.state.input },
-      ],
-    });
-    if (this.state.input.length === 0) {
-      this.setState({ task: [...this.state.task] });
+    let question = window.confirm('Добавить в список?');
+    if (question === true) {
+      this.setState({
+        task: [
+          ...this.state.task,
+          { id: this.state.task.length + 1, name: this.state.input },
+        ],
+      });
+      if (this.state.input.length === 0) {
+        this.setState({ task: [...this.state.task] });
+      }
+      this.setState({ input: '' });
     }
-    this.setState({ input: '' });
   };
 
   onChangeHandler = e => {
@@ -50,15 +53,19 @@ class ToDoListClass extends Component {
   };
 
   deleteTask = id => {
-    this.setState({ task: this.state.task.filter(item => item.id !== id) });
+    let question = window.confirm('Удалить из списка?');
+    if (question === true) {
+      this.setState({ task: this.state.task.filter(item => item.id !== id) });
+    }
   };
 
   clearLs = () => {
-    localStorage.removeItem('task');
-    this.setState({ task: [] });
+    let question = prompt('Очистить список');
+    if (question === '12345678') {
+      localStorage.removeItem('task');
+      this.setState({ task: [] });
+    }
   };
-
-  componentWillUnmount() {}
 
   render() {
     return (
