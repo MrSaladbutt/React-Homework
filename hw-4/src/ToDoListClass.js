@@ -5,9 +5,9 @@ import DeleteBtnClass from './DeleteBtnClass';
 class ToDoListClass extends Component {
   state = {
     task: [
-      { id: 1, name: 'First ToDo' },
-      { id: 2, name: 'Second ToDo' },
-      { id: 3, name: 'Third ToDo' },
+      // { id: 1, name: 'First ToDo' },
+      // { id: 2, name: 'Second ToDo' },
+      // { id: 3, name: 'Third ToDo' },
     ],
     input: '',
   };
@@ -37,7 +37,10 @@ class ToDoListClass extends Component {
       this.setState({
         task: [
           ...this.state.task,
-          { id: this.state.task.length + 1, name: this.state.input },
+          {
+            id: this.state.task.length + Math.random(),
+            name: this.state.input,
+          },
         ],
       });
       if (this.state.input.length === 0) {
@@ -80,7 +83,7 @@ class ToDoListClass extends Component {
         <button className="input-btn" onClick={this.onClickHandler}>
           Add ToDo
         </button>
-        <ul>
+        <ol>
           {this.state.task.map((element, index) => {
             return (
               <ToDoListItem
@@ -96,7 +99,7 @@ class ToDoListClass extends Component {
               </ToDoListItem>
             );
           })}
-        </ul>
+        </ol>
         <button className="btn-clr-ls" onClick={this.clearLs}>
           Clear Todo List
         </button>
