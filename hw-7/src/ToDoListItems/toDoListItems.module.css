@@ -1,0 +1,13 @@
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+li {
+  max-width: 500px;
+  text-align: left;
+}

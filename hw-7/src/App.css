@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.theme-dark {
+  background-color: #282c34;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.theme-light {
+  background-color: white;
+  color: #282c34;
+  transition: background-color 0.2s;
+}
+
+.theme-dark button {
+  color: white;
+  transition: color 0.2s;
+}
+
+.theme-light button {
+  color: #282c34;
+  transition: color 0.2s;
+}

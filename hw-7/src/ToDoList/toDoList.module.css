@@ -1,0 +1,54 @@
+input {
+  width: 500px;
+  border-radius: 5px;
+  padding: 8px 10px;
+  border: 2px solid burlywood;
+  box-shadow: 0px 0px 5px 1px burlywood;
+  margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn {
+  border-radius: 10px;
+  border: 2px solid burlywood;
+  padding: 10px 20px;
+  background-color: transparent;
+
+  box-shadow: 0px 0px 5px 1px burlywood;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 50px;
+}
+
+.btn:hover {
+  background-color: burlywood;
+}
+
+.btnClearLs {
+  border-radius: 10px;
+  border: 2px solid burlywood;
+  padding: 10px 20px;
+  background-color: transparent;
+
+  box-shadow: 0px 0px 5px 1px burlywood;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 100px;
+}
+
+.btnClearLs:hover {
+  background-color: burlywood;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
