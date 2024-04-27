@@ -2,6 +2,7 @@
   "name": "hw-2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mrsaladbutt.github.io/React-Homework/hw-8/build",
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
