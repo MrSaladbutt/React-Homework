@@ -1,0 +1,8 @@
+#select {
+  background-color: burlywood;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 50px;
+  color: black;
+  cursor: pointer;
+}
