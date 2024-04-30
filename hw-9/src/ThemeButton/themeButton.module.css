@@ -1,0 +1,61 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  align-self: flex-start;
+  margin: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  border-radius: 34px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #282c34;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: '';
+  border-radius: 50%;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px #2020203d;
+  background: white
+    url('https://w7.pngwing.com/pngs/135/906/png-transparent-lunar-phase-computer-icons-full-moon-blue-half-moon-blue-meteorology-moon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+input:checked + .slider {
+  background-color: burlywood;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #282c34;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}

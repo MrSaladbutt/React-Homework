@@ -1,3 +1,4 @@
+import { useForm } from 'react-hook-form';
 import ToDoListItem from '../ToDoListItems/ToDolistItem';
 import listStyles from '../ToDoList/toDoList.module.css';
 import { useState, useEffect } from 'react';
@@ -5,43 +6,30 @@ import Select from '../Select/Select';
 import Search from '../Search/Search';
 
 const ToDolist = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const [todos, setTodos] = useState(() => {
     const lsTodo = localStorage.getItem('todos');
     return lsTodo ? JSON.parse(lsTodo) : [];
   });
+
   const [input, setInput] = useState('');
-  const [inputDirty, setInputDirty] = useState(false);
-  const [inputError, setInputError] = useState('Це поле не може бути пустим');
+
   const [searchTerm, setSearchTerm] = useState('');
+
   const [filter, setFilter] = useState('Всі');
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  const onClickHandler = () => {
-    if (input.length === 0) return;
-    if (input.length > 4 && input.length < 20) {
-      setTodos([...todos, { id: todos.length + Math.random(), name: input }]);
-      setInput('');
-    }
-  };
-
-  const enterPressedHandler = e => {
-    if (e.key === 'Enter') {
-      onClickHandler();
-    }
-  };
-
-  const onChangeHandler = e => {
-    setInput(e.target.value);
-    if (input.length < 4) {
-      setInputError('Це поле не може бути менше 4 символів');
-    } else if (input.length > 20) {
-      setInputError('Це поле не може бути більше 20 символів');
-    } else {
-      setInputError('');
-    }
+  const onSubmit = data => {
+    setTodos([...todos, { id: todos.length + Math.random(), name: data.task }]);
+    setInput('');
   };
 
   const deleteTask = id => {
@@ -79,10 +67,6 @@ const ToDolist = () => {
     );
   };
 
-  const focusHandler = () => {
-    setInputDirty(true);
-  };
-
   return (
     <div className={listStyles.container}>
       <Search
@@ -92,38 +76,40 @@ const ToDolist = () => {
         setSearchTerm={setSearchTerm}
       />
       <p>Tasks: {todos.length}</p>
-
-      <input
-        className={listStyles.mainInput}
-        type="text"
-        value={input}
-        onChange={onChangeHandler}
-        onKeyPress={enterPressedHandler}
-        onFocus={focusHandler}
-      />
-      {inputDirty && inputError && (
-        <span className={listStyles.error}>{inputError}</span>
-      )}
-      <button className={listStyles.btn} onClick={onClickHandler}>
-        Add ToDo
-      </button>
+      <form className={listStyles.form} onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className={listStyles.mainInput}
+          type="text"
+          {...register('task', { required: true, minLength: 4, maxLength: 20 })}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+        />
+        {errors.task && errors.task.type === 'required' && (
+          <span className={listStyles.error}>Це поле є обов'язковим</span>
+        )}
+        {errors.task && errors.task.type === 'minLength' && (
+          <span className={listStyles.error}>Мінімум 4 символи</span>
+        )}
+        {errors.task && errors.task.type === 'maxLength' && (
+          <span className={listStyles.error}>Максимум 20 символів</span>
+        )}
+        <button className={listStyles.btn} type="submit">
+          Add ToDo
+        </button>
+      </form>
 
       <Select filter={filter} handleSelectChange={handleSelectChange} />
       <ul>
-        {filteredTodos.length > 0 ? (
-          filteredTodos.map((element, index) => (
-            <ToDoListItem
-              element={element}
-              toggleTodo={toggleTodo}
-              key={index}
-              id={element.id}
-              name={element.name}
-              deleteTask={deleteTask}
-            />
-          ))
-        ) : (
-          <p>Завдань не знайдено</p>
-        )}
+        {filteredTodos.map((element, index) => (
+          <ToDoListItem
+            element={element}
+            toggleTodo={toggleTodo}
+            key={index}
+            id={element.id}
+            name={element.name}
+            deleteTask={deleteTask}
+          />
+        ))}
       </ul>
       <button className={listStyles.btnClearLs} onClick={clearLs}>
         Clear Todo List
