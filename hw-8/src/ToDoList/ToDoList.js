@@ -3,6 +3,7 @@ import listStyles from '../ToDoList/toDoList.module.css';
 import { useState, useEffect } from 'react';
 import Select from '../Select/Select';
 import Search from '../Search/Search';
+import { debounce } from 'lodash';
 
 const ToDolist = () => {
   const [todos, setTodos] = useState(() => {
@@ -14,10 +15,26 @@ const ToDolist = () => {
   const [inputError, setInputError] = useState('Це поле не може бути пустим');
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('Всі');
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+
+  useEffect(() => {
+    const debouncedFilterTodos = debounce(() => {
+      const filtered = todos.filter(todo =>
+        todo.name.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+      setFilteredTodos(filtered);
+    }, 500);
+
+    debouncedFilterTodos();
+
+    return () => {
+      debouncedFilterTodos.cancel();
+    };
+  }, [searchTerm, todos]);
 
   const onClickHandler = () => {
     if (input.length === 0) return;
@@ -56,20 +73,6 @@ const ToDolist = () => {
   const handleSelectChange = event => {
     setFilter(event.target.value);
   };
-
-  const filteredTodos = todos
-    .filter(todo => {
-      if (filter === 'Активний') {
-        return !todo.completed;
-      } else if (filter === 'Завершений') {
-        return todo.completed;
-      } else {
-        return true;
-      }
-    })
-    .filter(todo => {
-      return todo.name.toLowerCase().includes(searchTerm.toLowerCase());
-    });
 
   const toggleTodo = id => {
     setTodos(
