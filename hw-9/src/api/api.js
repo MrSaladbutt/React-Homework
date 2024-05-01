@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3030/';
+axios.defaults.baseURL =
+  'https://mrsaladbutt.github.io/React-Homework/hw-9/build/';
 
 export const getTodoList = async () => {
   const list = await axios.get('todos');
