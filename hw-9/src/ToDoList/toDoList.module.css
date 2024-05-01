@@ -1,26 +1,14 @@
-.mainInput {
-  width: 500px;
-  border-radius: 5px;
-  padding: 8px 10px;
-  border: 2px solid burlywood;
-  box-shadow: 0px 0px 5px 1px burlywood;
-  margin-bottom: 10px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  width: 100%;
+}
+
+.error {
+  color: red;
 }
 
 .btn {
@@ -37,37 +25,19 @@
 
 .btn:hover {
   background-color: burlywood;
+  color: #282c34;
 }
 
-.btnClearLs {
-  border-radius: 10px;
-  border: 2px solid burlywood;
-  padding: 10px 20px;
-  background-color: transparent;
-
-  box-shadow: 0px 0px 5px 1px burlywood;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-bottom: 100px;
-}
-
-.btnClearLs:hover {
-  background-color: burlywood;
-}
-
-ol {
+.notasks {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 30px;
+  font-size: 20px;
 }
 
-.todos {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 20px;
-}
-
-.error {
-  color: red;
+ul {
+  width: calc(100% - 80px);
+  text-align: center;
 }

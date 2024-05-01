@@ -1,0 +1,16 @@
+.btn {
+  border-radius: 10px;
+  border: 2px solid burlywood;
+  padding: 10px 20px;
+  background-color: transparent;
+
+  box-shadow: 0px 0px 5px 1px burlywood;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-color: burlywood;
+  color: #282c34;
+}
