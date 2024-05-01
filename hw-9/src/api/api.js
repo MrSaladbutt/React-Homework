@@ -1,7 +1,11 @@
 import axios from 'axios';
 
-axios.defaults.baseURL =
-  'https://mrsaladbutt.github.io/React-Homework/hw-9/build/';
+const baseURL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://mrsaladbutt.github.io/React-Homework/hw-9/build/db.json/'
+    : 'http://localhost:3030';
+
+axios.defaults.baseURL = baseURL;
 
 export const getTodoList = async () => {
   const list = await axios.get('todos');
