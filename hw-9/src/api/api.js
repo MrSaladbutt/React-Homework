@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseURL =
   process.env.NODE_ENV === 'production'
-    ? 'https://mrsaladbutt.github.io/React-Homework/hw-9/build/db.json/'
+    ? 'https://mrsaladbutt.github.io/React-Homework/hw-9/db.json/'
     : 'http://localhost:3030';
 
 axios.defaults.baseURL = baseURL;
