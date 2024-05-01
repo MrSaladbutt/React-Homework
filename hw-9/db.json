@@ -1,3 +1,11 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "D0kNfnih84",
+      "title": "dasdasdsad",
+      "description": "asd",
+      "checked": false,
+      "creationDate": "01.05.2024"
+    }
+  ]
 }

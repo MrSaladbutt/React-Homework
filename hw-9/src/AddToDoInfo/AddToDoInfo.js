@@ -40,6 +40,12 @@ export const AddToDoInfo = props => {
     setChecked(e.target.checked);
   };
 
+  const enterPressHandler = e => {
+    if (e.key === 'Enter') {
+      addToDo();
+    }
+  };
+
   return (
     <div className={inputStyles.inputs}>
       <input
@@ -47,12 +53,14 @@ export const AddToDoInfo = props => {
         value={title}
         onChange={e => setTitle(e.target.value)}
         className={inputStyles.mainInput}
+        onKeyPress={enterPressHandler}
       />
       <input
         type="text"
         value={description}
         onChange={e => setDescription(e.target.value)}
         className={inputStyles.mainInput}
+        onKeyPress={enterPressHandler}
       />
       <div className={inputStyles.check}>
         <p>Виконано: </p>

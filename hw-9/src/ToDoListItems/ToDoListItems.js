@@ -63,6 +63,12 @@ const ToDoListItems = ({ task, refetch, isPostLoading, setIsPostLoading }) => {
     }
   };
 
+  const enterHandler = e => {
+    if (e.key === 'Enter') {
+      handleSave();
+    }
+  };
+
   return (
     <div className={toDoListItem.items}>
       <li key={id}>
@@ -74,12 +80,14 @@ const ToDoListItems = ({ task, refetch, isPostLoading, setIsPostLoading }) => {
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
+                onKeyPress={enterHandler}
               />
               <input
                 className={toDoListItem.editInput}
                 type="text"
                 value={description}
                 onChange={e => setDescription(e.target.value)}
+                onKeyPress={enterHandler}
               />
               <div className={toDoListItem.editCheckbox}>
                 <p>Виконано</p>
