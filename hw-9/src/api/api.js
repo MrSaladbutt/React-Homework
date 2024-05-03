@@ -1,11 +1,6 @@
 import axios from 'axios';
 
-const baseURL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://mrsaladbutt.github.io/React-Homework/hw-9/db.json/'
-    : 'http://localhost:3030';
-
-axios.defaults.baseURL = baseURL;
+axios.defaults.baseURL = 'https://tododb-ee39f480207e.herokuapp.com/';
 
 export const getTodoList = async () => {
   const list = await axios.get('todos');
