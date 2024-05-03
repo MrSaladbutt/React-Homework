@@ -1,70 +1,16 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Продовжуємо працювати з to do додатком
+1. Підключити JSON-server. Команда запуску серверу “json-server --watch db.json --port 3030 --delay 2000”
+2. Тепер при першому вході у додаток має іти запит GET на отримання всіх todo. (Дивись як має виглядати структура отриманих даних).
+3. Якщо todo ще не додані має показуватись текст приклад: “Наразі у вас немає щє завдань” і кнопка додати todo.
+4. При натисканні на додати todo мають зʼявлятись поля для додавання. (Назва todo, Опис todo, Checkbox виконана чи ні).
+5. Після заповнення полів і натискання “додати” має іти POST запит на додавання туду з полями як в структурі данних на картинці.
+6. Біля кожної todo має бути кнопка “редагувати” при натисканні на неї має відкритись нове вікно і піти GET запит безпосередньо на цю todo, де мають
+бути ті самі поля що і при додаванні але поля мають бути вже заповнені стосовно отриманної з сервера todo (мають мати можливість для редагування).
+І кнопка “зберігти”.
+7. При натисканні на кнопку зберегти має іти PUT запит на редагування todo.
+8. Не забуваємо і про DELETE запит. При видаленні todo має видалятись також з JSON файла.
+9. Всі завантаження мають бути оброблені (спіннер чи якийсь ще лоадер).
+10. При отриманні помилки з сервера вона теж має бути оброблена.
+11. (Не обовʼязково) Зробити все за допомогою бібліотеки react-query
+* Дизайн і Всі назви полів і строк на ваш розсуд. В завданні то як приклад.
+* Функціонал і структура даних мають бути точна така як в завданні.
