@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://tododb-ee39f480207e.herokuapp.com/';
+axios.defaults.baseURL = 'https://database-8c79.onrender.com/';
 
 export const getTodoList = async () => {
   const list = await axios.get('todos');
