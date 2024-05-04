@@ -1,0 +1,39 @@
+.container {
+  padding: 130px 100px;
+  color: burlywood;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.description {
+  font-size: 20px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: burlywood;
+  border: 1px solid burlywood;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: all 0.2s;
+}
+
+.link:hover {
+  background-color: transparent;
+  color: burlywood;
+}
