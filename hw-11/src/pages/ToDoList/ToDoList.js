@@ -45,7 +45,11 @@ const ToDolist = () => {
           />
           <ul className={listStyles.ul}>
             {isFetching ? (
-              <RingLoader color="#DEB887" loading={isFetching} />
+              <RingLoader
+                style={{ position: 'absolute', top: '50%', left: '50%' }}
+                color="#DEB887"
+                loading={isFetching}
+              />
             ) : (
               data.map((task, index) => (
                 <ToDoListItems

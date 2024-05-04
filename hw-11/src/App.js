@@ -23,12 +23,24 @@ function App() {
   });
 
   if (isFetching) {
-    return <RingLoader style={{ textAlign: 'center' }} color="#DEB887" />;
+    return (
+      <RingLoader
+        style={{ position: 'absolute', top: '50%', left: '50%' }}
+        color="#DEB887"
+      />
+    );
   }
 
   return (
     <div className="App" id="app">
-      <Suspense fallback={<RingLoader color="#DEB887" />}>
+      <Suspense
+        fallback={
+          <RingLoader
+            style={{ position: 'absolute', top: '50%', left: '50%' }}
+            color="#DEB887"
+          />
+        }
+      >
         <Routes>
           <Route
             path="/"
