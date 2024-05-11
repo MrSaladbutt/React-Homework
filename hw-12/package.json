@@ -2,7 +2,7 @@
   "name": "hw-2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mrsaladbutt.github.io/React-Homework/hw-11/build",
+  "homepage": "https://mrsaladbutt.github.io/React-Homework/hw-12/build",
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@reduxjs/toolkit": "^2.2.4",

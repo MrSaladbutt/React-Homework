@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <BrowserRouter basename="/React-Homework/hw-11/build">
+    <BrowserRouter basename="/React-Homework/hw-12/build">
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
